@@ -1,22 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import PcPartPickerWelcomeView from "@/views/PcPartPickerWelcomeView.vue";
+import PcPartPickerBuilder from "@/views/PcPartPickerBuilderView.vue";
+import PcPartPickerForum from "@/views/PcPartPickerForumView.vue";
+import PcPartPickerSignUpView from "@/views/PcPartPickerSign-UpView.vue";
+import PcPartPickerCpuView from "@/views/PcPartPickerCpuView.vue";
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'PcPartPickerWP',
+    component: PcPartPickerWelcomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    }
-  }
+    path: '/builder',
+    name: 'PcPartPickerBuilder',
+    component: PcPartPickerBuilder
+  },
+  {
+    path: '/forum',
+    name: 'PcPartPickerForum',
+    component: PcPartPickerForum
+  },
+  {
+    path: '/sign-up',
+    name: 'PcPartPickerSignUpView',
+    component: PcPartPickerSignUpView
+  },
+  {
+    path: '/products/cpu',
+    name: 'PcPartPickerCpuView',
+    component: PcPartPickerCpuView
+  },
 ]
 
 const router = createRouter({
