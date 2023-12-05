@@ -25,6 +25,7 @@ export default {
   data() {
     return {
       isFormValid: false,
+      errorMessage: '',
       formData: {
         email: '',
         password: '',
@@ -34,19 +35,13 @@ export default {
   },
   methods: {
     submitForm() {
-      // Reset error message
-      this.errorMessage = '';
-
-      // Send form data to Django backend for authentication
       axios.post('http://127.0.0.1:8000/api/login/', this.formData)
           .then(response => {
             console.log('User logged in successfully:', response.data);
-            // Handle successful login (redirect, show a success message, etc.)
           })
           .catch(error => {
-            console.error('Error logging in:', error);
-            // Handle login error (display error message, reset form, etc.)
-            this.errorMessage = 'Invalid credentials. Please check your email and password.';
+            //console.error('Error logging in:', error);
+            this.errorMessage = error.response.data.non_field_errors[0];
           });
     },
   },
@@ -54,11 +49,10 @@ export default {
     formData: {
       deep: true,
       handler() {
-        // Simple form validation logic
         this.isFormValid =
             this.formData.email.trim() !== '' &&
             this.formData.password.trim() !== '' &&
-            this.formData.password.length >= 6; // You can add more complex validation rules
+            this.formData.password.length >= 6;
       },
     },
   },

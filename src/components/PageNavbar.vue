@@ -31,7 +31,7 @@ export default {
               Products
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"> <i class="bi bi-cpu"></i> CPUs</a></li>
+              <li><router-link class="dropdown-item" to="/products/cpu"> <i class="bi bi-cpu"></i> CPUs</router-link></li>
               <li><a class="dropdown-item" href="#"> <i class="bi bi-motherboard"></i> Motherboards</a></li>
               <li><a class="dropdown-item" href="#"> <i class="bi bi-memory"></i> Memory</a></li>
               <li><a class="dropdown-item" href="#"> <i class="bi bi-nvme"></i> Storage</a></li>
